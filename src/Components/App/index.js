@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
 import Formulario from '../Formulario'
 import Navbar from '../Navbar' 
-
+import Citas from '../Citas'
 
 function App() {
 
   // Arreglo de citas
 
   const [citas, guardarCitas] = useState ([
-
   ]); 
 
   // Funcion que tome las citas actuales y agruegen la nuevas.
 
-   const crearCita = cita => {
+  const crearCita = cita => {
      guardarCitas([
        ...citas,
        cita
-     ])
-
-     // Reiniciar Formularios
-     
-
+     ]);
   } 
 
+  // Funcion eliminar citas
 
+  const eliminarCita = id => {
+    const nuevaCitas = citas.filter ( cita => cita.id !== id );
+    guardarCitas(nuevaCitas)
+  }
 
   return (
     <>
@@ -41,6 +41,14 @@ function App() {
             />
            </div>
           <div className="one-half column">
+            <h2>Administrar Citas</h2>
+              {citas.map(cita =>
+                <Citas 
+                key={cita.key}
+                cita={cita}
+                eliminarCita={eliminarCita}
+                />
+                )}
               <Navbar />
             </div>
         </div>
