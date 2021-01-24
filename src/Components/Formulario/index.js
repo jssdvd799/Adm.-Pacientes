@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-/* import uuid from 'uuid/v8.3.2'  */
+import { v4 as uuidv4 } from 'uuid'
 
-const Formulario = () => {
-
+  const Formulario = ({crearCita}) => {
+  uuidv4();
   //Crear el state de Citas
   const [cita, actualizarCita] = useState({
     mascota: '',
@@ -13,7 +13,6 @@ const Formulario = () => {
   });
 
   const [error, actualizarError] = useState (false)
-
 
   // Funcion que se usa cuando el usuario escribe un input
 
@@ -44,8 +43,14 @@ const Formulario = () => {
   actualizarError(false);
 
   // Asignar una ID
-/*   cita.id= uuid();
-  console.log(cita); */
+ 
+   const { v4: uuidv4 } = require('uuid');
+   cita.id= uuidv4();
+
+  // Crear Cita
+
+  crearCita(cita);
+  
 
 };
 
