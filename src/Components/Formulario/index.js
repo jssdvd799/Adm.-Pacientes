@@ -51,6 +51,15 @@ import { v4 as uuidv4 } from 'uuid'
 
   crearCita(cita);
   
+  // Reiniciando el formulario
+
+  actualizarCita({
+    mascota: '',
+    propetario: '',
+    fecha: '',
+    hora: '',
+    sintomas: '',
+  })
 
 };
 
